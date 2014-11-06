@@ -1,0 +1,25 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: grainier
+ * Date: 10/30/14
+ * Time: 11:25 AM
+ */
+?>
+
+<html>
+<head>
+    <title>Login for ECWM604</title>
+</head>
+<body>
+<h3>Login for the ECWM604 Website</h3>
+
+<form action="/index.php/auth/authenticate" method="POST">
+    Username : <input type="text" name='uname' length="10" size="10"> <br>
+    Password: <input type="password" name='pword' length="15" size="30"> <br>
+    <input type="submit" value='Register!'>
+</form>
+
+<h1 style="color: red"><?php echo $errmsg; ?></h1>
+</body>
+</html>
