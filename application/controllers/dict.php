@@ -22,6 +22,7 @@ class Dict extends CI_Controller
         }
         $this->load->model('words');
         $wordlist = $this->words->match($typed);
+        $this->output->set_content_type('text/xml');
         $this->load->view('wordview', array('words' => $wordlist));
     }
 }
