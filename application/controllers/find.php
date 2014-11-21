@@ -19,12 +19,25 @@ class Find extends CI_Controller
         $this->load->view('lookupform'); // this generates the lookup form
     }
 
+    function cd_catalogue()
+    {
+        $this->load->view('cd_catalogue'); // this generates the lookup form
+    }
+
     function lookupById()
     {
         $student_id = $this->input->post('id');
         $student = $this->student->getById($student_id);
         // just for brevity, we'll echo the result here - you should use a view!
         echo implode(':',$student);
+    }
+
+    function lookupById_json()
+    {
+        $student_id = $this->input->post('id');
+        $student = $this->student->getById($student_id);
+        $this->output->set_content_type('application/json');
+        echo json_encode($student); // we turn the PHP array into a JSON string
     }
 
     function lookupById_xml()
