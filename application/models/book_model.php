@@ -7,6 +7,27 @@ class Book_model extends CI_Model {
         $this->load->database();
     }
 
+    public function insert_book($title, $type, $genre, $subgenre) {
+        $this->db->insert('book', array(
+            'title' => $title,
+            'type' => $type,
+            'genre_id' => $genre,
+            'subgenre_id' => $subgenre
+        ));
+
+        return true;
+    }
+
+    public function delete_book($title, $type, $genre, $subgenre) {
+        $where = array();
+        if ($title) $where['title'] = $title;
+        if ($type) $where['type'] = $type;
+        if ($genre) $where['genre_id'] = $genre;
+        if ($subgenre) $where['subgenre_id'] = $subgenre;
+        $this->db->delete('book', $where);
+        return true;
+    }
+
     public function search($type, $genre, $subgenre)
     {
         $bookData = array();
