@@ -9,8 +9,9 @@ class Product_model extends CI_Model {
 
 	public function lookup($paProductType)
 	{
-        $this->db->where('name', $paProductType);
-        $handle = $this->db->get('product_type');
+        $handle = $this->db->query("SELECT name FROM product_type WHERE name LIKE '$paProductType'");
+        // $this->db->where('name', $paProductType);
+        // $handle = $this->db->get('product_type');
         $returnData = array();
 
         // for testing we are adding passed value as the first element
